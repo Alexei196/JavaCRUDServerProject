@@ -19,7 +19,6 @@ public class ConnectionHandler extends Thread{
 		}
 	}
 	
-	
 	public void run() {
 		try {
 			String input;
