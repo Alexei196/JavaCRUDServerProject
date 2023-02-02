@@ -21,6 +21,16 @@ public class ConnectionHandler extends Thread{
 	
 	
 	public void run() {
-		
+		try {
+			String input;
+			do {
+				input = inputStream.readUTF();
+				//TODO parse command from input
+				//TODO execute command
+				//TODO return command result to outputStream
+			} while(input != null);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

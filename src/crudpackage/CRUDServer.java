@@ -11,7 +11,6 @@ public class CRUDServer {
 			while(true) {
 				Socket clientSocket = serverSocket.accept();
 				ConnectionHandler newClientConnection = new ConnectionHandler(clientSocket);
-				clientSocket.
 				System.out.println("Client Connected");
 			}
 		} catch (NumberFormatException e) {
