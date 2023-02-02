@@ -1,17 +1,29 @@
 package crudpackage;
 
 public class Update implements Command {
-
+	String fileName;
+	String newContents;
+	int ID; 
+	
+	Update(String fileName, String newContents, int ID){
+		this.fileName = fileName;
+		this.newContents = newContents;
+		this.ID = ID;
+	}
 	@Override
-	public Object execute(String[] args) {
+	public String execute() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public int getCommandID() {
-		// TODO Auto-generated method stub
-		return 0;
+		return ID;
+	}
+
+	@Override
+	public boolean isNull() {
+		return false;
 	}
 
 }

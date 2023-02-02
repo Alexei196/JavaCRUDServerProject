@@ -1,9 +1,9 @@
 package crudpackage;
 
 public class CommandFactory {
-	
+	int commandsIssued;
 	CommandFactory(){
-		
+		commandsIssued = 0;
 	}
 	
 	public Command parseCommandFromString(String parseString) {
@@ -11,15 +11,15 @@ public class CommandFactory {
 		
  		switch(splitString[0]) {
 		case "create":
-			return new Create(splitString[1]);
+			return new Create(splitString[1], commandsIssued++);
 		case "read":
-			return new Read(splitString[1]);
+			return new Read(splitString[1], commandsIssued++);
 		case "update":
-			return new Update(splitString[1], splitString[2]);
+			return new Update(splitString[1], splitString[2], commandsIssued++);
 		case "delete":
-			return new Remove(splitString[1]);
+			return new Remove(splitString[1], commandsIssued++);
 		default: 
-			return new InvalidCommand();
+			return new InvalidCommand(parseString);
 		}
 	}
 }

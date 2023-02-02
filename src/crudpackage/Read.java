@@ -1,17 +1,27 @@
 package crudpackage;
 
 public class Read implements Command {
-
+	String arg;
+	int ID;
+	
+	Read(String arg, int ID) {
+		this.arg = arg;
+		this.ID = ID;
+	}
+	
 	@Override
-	public Object execute(String[] args) {
+	public String execute() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
 	@Override
 	public int getCommandID() {
-		// TODO Auto-generated method stub
-		return 0;
+		return ID;
 	}
 
+	@Override
+	public boolean isNull() {
+		return false;
+	}
 }

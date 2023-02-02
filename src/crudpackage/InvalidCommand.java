@@ -1,18 +1,18 @@
 package crudpackage;
 
 public class InvalidCommand implements Command {
-
-	InvalidCommand(){
-		
+	String args;
+	InvalidCommand(String args){
+		this.args = args;
 	}
 	@Override
-	public Object execute() {
-		return null;
+	public String execute() {
+		return String.format("\"%s\"is an invalid command!", args);
 	}
 
 	@Override
 	public int getCommandID() {
-		return 0;
+		return -1;
 	}
 
 	@Override

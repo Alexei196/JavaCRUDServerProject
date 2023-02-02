@@ -1,7 +1,7 @@
 package crudpackage;
 
 public interface Command {
-	public Object execute();
+	public String execute();
 	public int getCommandID();
 	public boolean isNull();
 }

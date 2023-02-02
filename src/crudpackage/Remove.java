@@ -1,17 +1,27 @@
 package crudpackage;
 
 public class Remove implements Command {
-
+	String fileName;
+	int ID;
+	
+	Remove(String fileName, int ID) {
+		this.fileName = fileName;
+		this.ID = ID;
+	}
 	@Override
-	public Object execute(String[] args) {
+	public String execute() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public int getCommandID() {
-		// TODO Auto-generated method stub
-		return 0;
+		return ID;
+	}
+
+	@Override
+	public boolean isNull() {
+		return false;
 	}
 
 }
