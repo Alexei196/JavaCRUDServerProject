@@ -6,8 +6,8 @@ public class InvalidCommand implements Command {
 		this.args = args;
 	}
 	@Override
-	public String execute() {
-		return String.format("\"%s\"is an invalid command!", args);
+	public CommunicationPacket execute() {
+		return null;
 	}
 
 	@Override

@@ -4,15 +4,15 @@ import java.net.*;
 import java.io.*;
 
 public class ConnectionHandler extends Thread{
-	DataInputStream inputStream;
-	DataOutputStream outputStream;
+	ObjectInputStream inputStream;
+	ObjectOutputStream outputStream;
 	Socket connectedSocket;
 	
 	public ConnectionHandler(Socket clientSocket) {
 		try {
 			this.connectedSocket = clientSocket;
-			this.inputStream = new DataInputStream(clientSocket.getInputStream());
-			this.outputStream = new DataOutputStream(clientSocket.getOutputStream());
+			this.inputStream = new ObjectInputStream(clientSocket.getInputStream());
+			this.outputStream = new ObjectOutputStream(clientSocket.getOutputStream());
 			this.start();
 		} catch(IOException e) {
 			e.printStackTrace();
@@ -20,16 +20,16 @@ public class ConnectionHandler extends Thread{
 	}
 	
 	public void run() {
-		try {
-			String input;
-			CommandFactory commandHandler = new CommandFactory();
+		CommunicationPacket commandResult;
 			do {
-				input = inputStream.readUTF();
-				Command nextCommand = commandHandler.parseCommandFromString(input);
-				outputStream.writeUTF(nextCommand.execute());
-			} while(input != null);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+				try {
+					commandResult = ((Command) inputStream.readObject()).execute();
+					outputStream.writeObject(commandResult);
+				} catch(IOException e) {
+					//TODO handle
+				} catch(ClassNotFoundException e) {
+					//TODO handle
+				}
+			} while(true);
 	}
 }
