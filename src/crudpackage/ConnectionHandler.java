@@ -21,15 +21,17 @@ public class ConnectionHandler extends Thread{
 	
 	public void run() {
 		CommunicationPacket commandResult;
+		boolean shouldRun = true;
 			do {
 				try {
 					commandResult = ((Command) inputStream.readObject()).execute();
 					outputStream.writeObject(commandResult);
 				} catch(IOException e) {
-					//TODO handle
+					//TODO handle stream error
 				} catch(ClassNotFoundException e) {
-					//TODO handle
+					//TODO handle request not of correct type
 				}
-			} while(true);
+			} while(shouldRun);
+		System.out.printf("Client Disconnected");
 	}
 }

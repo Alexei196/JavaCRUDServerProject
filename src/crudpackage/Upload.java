@@ -1,10 +1,12 @@
 package crudpackage;
 
-public class Create implements Command {
-	String newFile;
+import java.io.File;
+
+public class Upload implements Command {
+	File newFile;
 	int ID;
 	
-	Create(String newFile, int ID){
+	Upload(File newFile, int ID){
 		this.newFile = newFile;
 		this.ID = ID;
 	}
@@ -16,8 +18,9 @@ public class Create implements Command {
 
 	@Override
 	public int getCommandID() {
-		return ID;
+		return 0;
 	}
+
 	@Override
 	public boolean isNull() {
 		return false;

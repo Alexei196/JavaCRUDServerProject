@@ -1,11 +1,13 @@
 package crudpackage;
 
+import java.io.File;
+
 public class Update implements Command {
 	String fileName;
-	String newContents;
+	File newContents;
 	int ID; 
 	
-	Update(String fileName, String newContents, int ID){
+	Update(String fileName, File newFile, int ID){
 		this.fileName = fileName;
 		this.newContents = newContents;
 		this.ID = ID;
