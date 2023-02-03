@@ -18,7 +18,7 @@ public class CRUDClient {
 				System.out.println("Response: " + inputStream.readUTF());
 			} while(!consoleInput.equals("exit"));
 		} catch(IOException e) {
-			
+			e.printStackTrace();
 		}
 		
 	}
