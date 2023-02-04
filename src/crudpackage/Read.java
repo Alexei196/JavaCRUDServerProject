@@ -10,7 +10,7 @@ public class Read implements Command {
 	}
 	
 	@Override
-	public CommunicationPacket execute() {
+	public MessagePacket execute() {
 		// TODO Auto-generated method stub
 		return null;
 	}

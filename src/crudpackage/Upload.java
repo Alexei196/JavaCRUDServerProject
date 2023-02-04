@@ -1,17 +1,17 @@
 package crudpackage;
 
-import java.io.File;
+import java.util.ArrayList;
 
 public class Upload implements Command {
-	File newFile;
+	ArrayList<byte[]> serializedFile;
 	int ID;
 	
-	Upload(File newFile, int ID){
-		this.newFile = newFile;
+	Upload(ArrayList<byte[]> serializedFile, int ID){
+		this.serializedFile = serializedFile;
 		this.ID = ID;
 	}
 	@Override
-	public CommunicationPacket execute() {
+	public MessagePacket execute() {
 		// TODO Auto-generated method stub
 		return null;
 	}

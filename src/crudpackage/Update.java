@@ -1,19 +1,19 @@
 package crudpackage;
 
-import java.io.File;
+import java.util.ArrayList;
 
 public class Update implements Command {
 	String fileName;
-	File newContents;
+	ArrayList<byte[]> serializedFile;
 	int ID; 
 	
-	Update(String fileName, File newFile, int ID){
+	Update(String fileName, ArrayList<byte[]> serializedFile, int ID){
 		this.fileName = fileName;
-		this.newContents = newContents;
+		this.serializedFile = serializedFile;
 		this.ID = ID;
 	}
 	@Override
-	public CommunicationPacket execute() {
+	public MessagePacket execute() {
 		// TODO Auto-generated method stub
 		return null;
 	}

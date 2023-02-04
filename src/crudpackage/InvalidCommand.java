@@ -6,7 +6,7 @@ public class InvalidCommand implements Command {
 		this.args = args;
 	}
 	@Override
-	public CommunicationPacket execute() {
+	public MessagePacket execute() {
 		return null;
 	}
 

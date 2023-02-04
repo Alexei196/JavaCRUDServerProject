@@ -20,7 +20,7 @@ public class ConnectionHandler extends Thread{
 	}
 	
 	public void run() {
-		CommunicationPacket commandResult;
+		MessagePacket commandResult;
 		boolean shouldRun = true;
 			do {
 				try {

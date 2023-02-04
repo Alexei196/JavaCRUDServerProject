@@ -9,7 +9,7 @@ public class Create implements Command {
 		this.ID = ID;
 	}
 	@Override
-	public CommunicationPacket execute() {
+	public MessagePacket execute() {
 		// TODO Auto-generated method stub
 		return null;
 	}

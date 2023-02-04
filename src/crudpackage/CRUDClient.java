@@ -19,7 +19,7 @@ public class CRUDClient {
 					Command requestedCommand = commandFactory.parseCommandFromString(consoleInput);
 					if(!requestedCommand.isNull()) {
 						outputStream.writeObject(requestedCommand);
-						CommunicationPacket serverResponse = (CommunicationPacket) inputStream.readObject();
+						MessagePacket serverResponse = (MessagePacket) inputStream.readObject();
 						System.out.printf("Server Response: %s", serverResponse.toString());
 					}
 					else System.out.printf("Invalid Command: \"%s\"", requestedCommand.toString());
