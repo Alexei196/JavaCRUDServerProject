@@ -1,14 +1,20 @@
 package crudpackage;
 
+import java.util.ArrayList;
+
 public class FilePacket implements MessagePacket {
+	ArrayList<byte[]> fileByteArray;
+	FilePacket(ArrayList<byte[]> fileByteArray){
+		this.fileByteArray = fileByteArray;
+	}
+	@Override
 	public Object getPayload() {
-		// TODO Auto-generated method stub
-		return null;
+		return fileByteArray;
 	}
 
 	@Override
 	public String getMessageType() {
-		return "File";
+		return "file";
 	}
 
 }

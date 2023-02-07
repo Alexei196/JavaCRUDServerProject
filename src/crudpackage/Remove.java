@@ -1,5 +1,7 @@
 package crudpackage;
 
+import java.io.File;
+
 public class Remove implements Command {
 	String fileName;
 	int ID;
@@ -10,8 +12,11 @@ public class Remove implements Command {
 	}
 	@Override
 	public MessagePacket execute() {
-		// TODO Auto-generated method stub
-		return null;
+		if(new File(fileName).delete()) {
+			return new TextPacket("Deleted");
+		} else {
+			return new ErrorPacket("Failed to delete File");
+		}
 	}
 
 	@Override
@@ -20,7 +25,7 @@ public class Remove implements Command {
 	}
 
 	@Override
-	public boolean isNull() {
+	public boolean isInvalid() {
 		return false;
 	}
 

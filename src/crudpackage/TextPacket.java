@@ -1,7 +1,5 @@
 package crudpackage;
 
-import java.io.File;
-
 public class TextPacket implements MessagePacket {
 	String message;
 	TextPacket(String message) {
@@ -14,8 +12,7 @@ public class TextPacket implements MessagePacket {
 
 	@Override
 	public String getMessageType() {
-		// TODO Auto-generated method stub
-		return null;
+		return "message";
 	}
 
 }

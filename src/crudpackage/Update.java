@@ -24,7 +24,7 @@ public class Update implements Command {
 	}
 
 	@Override
-	public boolean isNull() {
+	public boolean isInvalid() {
 		return false;
 	}
 

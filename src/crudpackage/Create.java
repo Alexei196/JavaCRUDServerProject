@@ -1,17 +1,29 @@
 package crudpackage;
 
+import java.io.*;
+import java.util.ArrayList;
+
 public class Create implements Command {
-	String newFile;
+	ArrayList<byte[]>  newFile;
+	String fileName;
 	int ID;
 	
-	Create(String newFile, int ID){
-		this.newFile = newFile;
+	Create(String fileName, ArrayList<byte[]> arrayList, int ID){
+		this.newFile = arrayList;
+		this.fileName = fileName;
 		this.ID = ID;
 	}
 	@Override
 	public MessagePacket execute() {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			FileOutputStream fileStream = new FileOutputStream(new File(fileName));
+			for(byte[] byteArray : newFile) {
+				fileStream.write(byteArray);
+			}
+			return new TextPacket("File Upload Success");
+		}catch(IOException e) {
+			return new ErrorPacket(String.format("File Upload Failed: %s\n", e.getMessage()));
+		}
 	}
 
 	@Override
@@ -19,7 +31,7 @@ public class Create implements Command {
 		return ID;
 	}
 	@Override
-	public boolean isNull() {
+	public boolean isInvalid() {
 		return false;
 	}
 

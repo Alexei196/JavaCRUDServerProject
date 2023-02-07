@@ -16,7 +16,7 @@ public class InvalidCommand implements Command {
 	}
 
 	@Override
-	public boolean isNull() {
+	public boolean isInvalid() {
 		return true;
 	}
 

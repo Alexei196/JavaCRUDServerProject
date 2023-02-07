@@ -1,17 +1,19 @@
 package crudpackage;
 
 public class ErrorPacket implements MessagePacket {
+	String errorMessage;
+	public ErrorPacket(String errorMessage) {
+		this.errorMessage = errorMessage;
+	}
 
 	@Override
 	public Object getPayload() {
-		// TODO Auto-generated method stub
-		return null;
+		return errorMessage;
 	}
 
 	@Override
 	public String getMessageType() {
-		// TODO Auto-generated method stub
-		return null;
+		return "error";
 	}
 
 }
